@@ -1,0 +1,11 @@
+﻿@model IEnumerable<Demo.Models.State>
+
+<select class="" id="">
+    @foreach (var item in Model)
+    {
+
+        <option value="@item.Id">@item.StateName</option>
+
+
+    }
+</select>

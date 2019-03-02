@@ -1,0 +1,33 @@
+﻿@model Demo.Models.State
+
+<h1>CascadeDropList</h1>
+
+@Html.DropDownList("Countrylist", null,"--Select Country--", new { @class="form-control" ,id="Country"})
+@Html.DropDownListFor(x=>x.StateName,new SelectList(""),"Choose Country First..", new { @class="form-control",id="State"})
+
+
+
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+
+            $("#Country").change(function () {
+                var Id = $(this).val();
+                $.ajax({
+
+                    type: "Get",
+                    url: "/market/GetStates/" + Id,
+                    success: function (response) {
+                        $("#State").html(response);
+                    }
+                })
+            })
+        })
+
+       
+    </script>
+    
+    
+    
+    }

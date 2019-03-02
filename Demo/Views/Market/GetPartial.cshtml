@@ -1,0 +1,22 @@
+﻿@model IEnumerable<Demo.Models.Goods>
+
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Quantity</th>
+        <th>Type</th>
+        <th>Options</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>@item.Name</td>
+        <td>@item.Quntity</td>
+        <td>@item.Type.Name</td>
+        <td><a href='#' class='btn btn-primary btn-edit' data_edit="@item.Id"><span class='glyphicon glyphicon-pencil'></span></a>
+        <a href='#' class='btn btn-danger btn-delete' data_id="@item.Id"><span class='glyphicon glyphicon-trash'></span></a></td>
+    </tr>
+    }
+
+</table>

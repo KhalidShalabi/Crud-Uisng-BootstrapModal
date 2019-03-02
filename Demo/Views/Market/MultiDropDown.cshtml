@@ -1,0 +1,27 @@
+﻿@model Demo.Models.CategoryViewModel
+@{
+    ViewBag.Title = "MultiDropDown";
+}
+
+<link href="~/Content/css/select2.min.css" rel="stylesheet" />
+<h2>MultiDropDown</h2>
+
+<div class="jumbotron">
+
+
+    @using (Html.BeginForm("SaveMulti", "Market", FormMethod.Post))
+    {
+        @Html.DropDownListFor(x=>x.GetList,new SelectList(Model.GetCatList),
+       "",new { @class="form-control chosen-select",@multiple="true"})
+        <input type="submit" value="save" class="btn btn-danger" />
+    }
+</div>
+
+<script>
+    $(document).ready(function () {
+        $(".chosen-select").select2({
+            placeholder:"Choose Catagorie"
+        });
+    });
+</script>
+<script src="~/Scripts/select2.min.js"></script>

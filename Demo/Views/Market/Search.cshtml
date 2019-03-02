@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Demo.Models.Goods>
+
+
+<h1>List Of Goods</h1>
+
+
+@using (Html.BeginForm("Search","Market",FormMethod.Get))
+{
+    <label>Select Name</label>
+    @Html.DropDownList("Name", null,"", new { @class = "form-control" })
+    <label>Write The  Quntity</label>
+    <input type="text" value="" name="Quntity" class="form-control"/>
+    <label>Choose Name</label>
+    <br />
+    <br />
+    <input type="submit" value="Search" class="btn btn-warning" />
+    <br />
+    <br />
+}
+
+
+
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>Name</th>
+        <th>Quntity</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.Quntity</td>
+        </tr>
+    }
+</table>
